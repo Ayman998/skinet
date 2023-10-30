@@ -30,5 +30,18 @@ namespace API.Controllers
         {
             return await _repositry.GetProductByIdAsync(id);
         }
+
+        [HttpGet("brands")]
+        public async Task<ActionResult<List<ProductBrand>>> GetProductBrands(){
+
+            var productBrands=await _repositry.GetProductBrandsAsync();
+            return Ok(productBrands);
+        }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<List<ProductType>>> GetProductTypes(){
+            var productTypes=await _repositry.GetProductTypesAsync();
+            return Ok(productTypes);
+        }
     }
 }
